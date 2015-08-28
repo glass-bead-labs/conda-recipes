@@ -1,0 +1,70 @@
+package:
+  name: neovim
+  version: "0.0.38"
+
+source:
+  fn: neovim-0.0.38.tar.gz
+  url: https://pypi.python.org/packages/source/n/neovim/neovim-0.0.38.tar.gz
+  md5: 8b723417d3bf15bab0b245d080d45298
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - neovim = neovim:main
+    #
+    # Would create an entry point called neovim that calls neovim.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - msgpack-python >=0.4.0
+    - greenlet
+
+  run:
+    - python
+    - msgpack-python >=0.4.0
+    - greenlet
+
+test:
+  # Python imports
+  imports:
+    - neovim
+    - neovim.api
+    - neovim.msgpack_rpc
+    - neovim.msgpack_rpc.event_loop
+    - neovim.plugin
+    - neovim.ui
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://github.com/neovim/python-client
+  license: Apache
+  summary: 'Python client to neovim'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
