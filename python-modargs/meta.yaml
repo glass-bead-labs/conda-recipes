@@ -1,0 +1,60 @@
+package:
+  name: python-modargs
+  version: !!str 1.7
+
+source:
+  fn: python-modargs-1.7.tar.gz
+  url: https://pypi.python.org/packages/source/p/python-modargs/python-modargs-1.7.tar.gz
+  md5: b4893fdd657e2f1bb8e750a747239a9a
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  #preserve_egg_dir: True
+  #entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - python-modargs = python-modargs:main
+    #
+    # Would create an entry point called python-modargs that calls python-modargs.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - modargs
+
+  #commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://pypi.python.org/pypi/python-modargs
+  license: UNKNOWN
+  summary: 'modargs is a simple command line argument parsing library that infers arguments from functions in a module'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

@@ -1,0 +1,62 @@
+package:
+  name: dexy_viewer
+  version: !!str 0.0.5
+
+source:
+  fn: dexy_viewer-0.0.5.tar.gz
+  url: https://pypi.python.org/packages/source/d/dexy_viewer/dexy_viewer-0.0.5.tar.gz
+  md5: 2c446451921b8d0728a60bbb5e616c7e
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  #preserve_egg_dir: True
+  #entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - dexy_viewer = dexy_viewer:main
+    #
+    # Would create an entry point called dexy_viewer that calls dexy_viewer.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - web.py
+
+  run:
+    - python
+    - web.py
+
+test:
+  # Python imports
+  imports:
+    - dexy_viewer
+
+  #commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://dexy.it
+  license: UNKNOWN
+  summary: 'UNKNOWN'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

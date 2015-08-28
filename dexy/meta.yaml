@@ -1,0 +1,102 @@
+package:
+  name: dexy
+  version: !!str 1.0.14
+
+source:
+  fn: dexy-1.0.14.tar.gz
+  url: https://pypi.python.org/packages/source/d/dexy/dexy-1.0.14.tar.gz
+  md5: 6a154bad9878e35c59f9ec59c45fabc0
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  #preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - dexy = dexy:main
+    #
+    # Would create an entry point called dexy that calls dexy.main()
+
+    - dexy = dexy.commands:run
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pexpect
+    - beautiful-soup >4
+    - pyyaml
+    - cashew >=0.2.7
+    - chardet
+    - inflection >=0.2.0
+    - jinja2
+    - ply >=3.4
+    - pygments
+    - python-modargs >=1.7
+    - requests >=0.10.6
+    - dexy_viewer
+    - markdown
+    - docutils
+
+  run:
+    - python
+    - pexpect
+    - beautifulsoup4
+    - pyyaml
+    - cashew >=0.2.7
+    - chardet
+    - inflection >=0.2.0
+    - jinja2
+    - ply >=3.4
+    - pygments
+    - python-modargs >=1.7
+    - requests >=0.10.6
+    - dexy_viewer
+    - markdown
+    - docutils
+
+test:
+  # Python imports
+  imports:
+    - dexy
+    - dexy.commands
+    - dexy.datas
+    - dexy.filters
+    - dexy.parsers
+    - dexy.reporters
+    - dexy.reporters.nodegraph
+    - dexy.reporters.nodegraph.d3
+    - dexy.reporters.run
+    - dexy.reporters.website
+    - dexy.templates
+    - tests
+    - tests.plugins
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - dexy --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://dexy.it
+  license:  MIT License
+  summary: 'Document Automation'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
